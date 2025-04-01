@@ -1,7 +1,7 @@
 name = "双倍掉落"
 description = "采集/挖矿/砍树 的物资有几率双倍掉落，默认几率为10%，可自定义。"
 author = "Va6gn（郁郁）"
-version = "1.0.0"
+version = "1.1"
 
 -- 兼容性
 api_version = 10
@@ -16,14 +16,23 @@ all_clients_require_mod = true
 server_only_mod = false
 
 -- 图标
--- icon_atlas = "modicon.xml"
--- icon = "modicon.tex"
+icon_atlas = "modicon.xml"
+icon = "modicon.tex"
 
 -- 配置选项
 configuration_options = {
     {
         name = "enable_double_drop",
         label = "启用双倍掉落",
+        options = {
+            {description = "开启", data = true},
+            {description = "关闭", data = false}
+        },
+        default = true,
+    },
+    {
+        name = "show_double_drop_message",
+        label = "显示双倍收获提示",
         options = {
             {description = "开启", data = true},
             {description = "关闭", data = false}

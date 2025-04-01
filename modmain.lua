@@ -56,8 +56,10 @@ local function AddDoubleDropHarvest()
                     item.Transform:SetPosition(x, y, z)
                     
                     -- 通知玩家
-                    if act.doer.components.talker then
-                        act.doer.components.talker:Say("幸运！获得了双倍收获！")
+                    if GetModConfigData("show_double_drop_message") then
+                        if act.doer.components.talker then
+                            act.doer.components.talker:Say("幸运！获得了双倍收获！")
+                        end
                     end
                     
                     DebugLog(2, "玩家", act.doer.name, "获得双倍采集物:", loot)
@@ -88,8 +90,10 @@ local function AddDoubleDropHarvest()
                     item.Transform:SetPosition(x, y, z)
                     
                     -- 通知玩家
-                    if act.doer.components.talker then
-                        act.doer.components.talker:Say("幸运！获得了双倍收获！")
+                    if GetModConfigData("show_double_drop_message") then
+                        if act.doer.components.talker then
+                            act.doer.components.talker:Say("幸运！获得了双倍收获！")
+                        end
                     end
                     
                     DebugLog(2, "玩家", act.doer.name, "获得双倍采摘物:", loot)
@@ -136,7 +140,10 @@ local function AddDoubleDropHarvest()
             end
             
             if #spawned_items > 0 and doer.components.talker then
-                doer.components.talker:Say("幸运！获得了双倍收获！")
+                -- 修改挖掘行为的消息显示
+                if GetModConfigData("show_double_drop_message") then
+                    doer.components.talker:Say("幸运！获得了双倍收获！")
+                end
                 DebugLog(2, "玩家", doer.name, "获得双倍挖掘物")
             end
         end
@@ -186,7 +193,10 @@ local function AddDoubleDropHarvest()
                 end
                 
                 if #spawned_items > 0 and doer.components.talker then
-                    doer.components.talker:Say("幸运！获得了双倍收获！")
+                    -- 修改砍伐行为的消息显示
+                    if GetModConfigData("show_double_drop_message") then
+                        doer.components.talker:Say("幸运！获得了双倍收获！")
+                    end
                     DebugLog(2, "玩家", doer.name, "获得双倍砍伐物", target_prefab)
                 end
             end)
@@ -237,7 +247,10 @@ local function AddDoubleDropHarvest()
                 end
                 
                 if #spawned_items > 0 and doer.components.talker then
-                    doer.components.talker:Say("幸运！获得了双倍收获！")
+                    -- 修改采矿行为的消息显示
+                    if GetModConfigData("show_double_drop_message") then
+                        doer.components.talker:Say("幸运！获得了双倍收获！")
+                    end
                     DebugLog(2, "玩家", doer.name, "获得双倍采矿物", target_prefab)
                 end
             end)
